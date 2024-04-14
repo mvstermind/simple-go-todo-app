@@ -15,6 +15,7 @@ func IsValidInput(text string) {
 		readdata.AddData()
 
 	case text == "3":
+		readdata.DeleteTask()
 
 	case text == "4":
 		readdata.DeleteAll()

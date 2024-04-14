@@ -3,12 +3,13 @@ package readdata
 import (
 	"bufio"
 	"fmt"
-	"io"
 	"os"
 	"time"
 )
 
 const FilePath = "DATA/todo.txt"
+
+var linesCount int = 1
 
 func AddData() {
 	fmt.Printf("Add task TODO: ")
@@ -21,25 +22,26 @@ func AddData() {
 	}
 	defer file.Close()
 
-	_, err = file.WriteString(string)
+	linesCount := getNumLines(file)
+	combinedString := fmt.Sprintf("%d. %s", linesCount, string)
+	_, err = file.WriteString(combinedString)
 	if err != nil {
 		err := fmt.Errorf("Error: %v\n", err)
 		fmt.Printf(err.Error())
 	}
 
-	scanner := bufio.NewScanner(io.Reader(file))
-	for scanner.Scan() {
-		fmt.Println(scanner.Text())
-	}
-	if err := scanner.Err(); err != nil {
-		fmt.Fprintln(os.Stderr, "reading standard input:", err)
-	}
 	fmt.Println("Task added!")
 	time.Sleep(time.Second)
 
 	defer func() {
 		fmt.Print("\033[H\033[2J") // that shit clears terminal and it's nuts
 	}()
+
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		linesCount++
+	}
+	fmt.Printf("%d", linesCount)
 
 }
 
@@ -53,4 +55,13 @@ func readInput() string {
 		fmt.Printf(err.Error())
 	}
 	return string
+}
+
+func getNumLines(file *os.File) int {
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		linesCount++
+	}
+	return linesCount
+
 }
