@@ -8,18 +8,19 @@ import (
 	"todo-app/validateinput"
 )
 
+// clear list has to be like this cuz otherwise it will be offset, dunno why this happens
 func main() {
+
 	fmt.Printf(`
 TODO LIST
 +------------------------+
 |1. Show TODO List       |
-|2, err . Add thing Fo Do      |
+|2. Add thing Fo Do      |
 |3. Remove From List     |
-|4. Exit                 |
+|4. Clear List		 | 
+|5. Exit                 |
 +------------------------+
-
-Type a number associated with
-the thing that u wanna to: `)
+Chose action: `)
 	b := bufio.NewReader(os.Stdin)
 
 	string, err := b.ReadString('\n')

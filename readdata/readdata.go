@@ -7,11 +7,10 @@ import (
 
 func ReadData() {
 
-	data, err := os.ReadFile("DATA/todo.txt")
+	data, err := os.ReadFile(FilePath)
 	if err != nil {
 		fmt.Printf("Couldn't read file content: %v\n", err)
 		return
 	}
 	fmt.Printf(string(data))
 }
-
