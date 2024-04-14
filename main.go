@@ -16,7 +16,6 @@ TODO LIST
 +------------------------+
 |1. Show TODO List       |
 |2. Add thing Fo Do      |
-|2, Add thing Fo Do      |
 |3. Remove From List     |
 |4. Clear List		 | 
 |5. Exit                 |
