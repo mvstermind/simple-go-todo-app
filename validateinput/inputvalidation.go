@@ -2,23 +2,24 @@ package validateinput
 
 import (
 	"fmt"
+	"todo-app/readdata"
 )
 
-func IsValidInput(text string) string {
+func IsValidInput(text string) {
 
 	switch {
 	case text == "1":
-		return "1"
+		readdata.ReadData()
+
 	case text == "2":
-		return "2"
+
 	case text == "3":
-		return "3"
+
 	case text == "4":
-		return "4"
+
 	default:
 		err := fmt.Errorf("Invalid Input")
 		fmt.Println(err.Error())
 	}
 
-	return text
 }

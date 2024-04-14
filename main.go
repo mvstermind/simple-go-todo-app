@@ -3,8 +3,8 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"log"
 	"os"
+	"strings"
 	"todo-app/validateinput"
 )
 
@@ -20,12 +20,16 @@ TODO LIST
 
 Type a number associated with
 the thing that u wanna to: `)
-	r := bufio.NewReader(os.Stdin)
+	b := bufio.NewReader(os.Stdin)
 
-	b, err := r.ReadString('\n')
+	string, err := b.ReadString('\n')
+	string = strings.TrimSpace(string)
+
 	if err != nil {
-		log.Fatal(err)
+		err := fmt.Errorf("Couldn't read input")
+		fmt.Println(err.Error())
+
 	} else {
-		validateinput.IsValidInput(b)
+		validateinput.IsValidInput(string)
 	}
 }
