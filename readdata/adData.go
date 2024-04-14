@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"time"
 )
 
 const FilePath = "DATA/todo.txt"
@@ -34,6 +35,12 @@ func AddData() {
 		fmt.Fprintln(os.Stderr, "reading standard input:", err)
 	}
 	fmt.Println("Task added!")
+	time.Sleep(time.Second)
+
+	defer func() {
+		fmt.Print("\033[H\033[2J") // that shit clears terminal and it's nuts
+	}()
+
 }
 
 func readInput() string {
