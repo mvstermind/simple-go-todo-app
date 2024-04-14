@@ -12,6 +12,7 @@ func IsValidInput(text string) {
 		readdata.ReadData()
 
 	case text == "2":
+		readdata.AddData()
 
 	case text == "3":
 

@@ -13,7 +13,7 @@ func main() {
 TODO LIST
 +------------------------+
 |1. Show TODO List       |
-|2. Add thing Fo Do      |
+|2, err . Add thing Fo Do      |
 |3. Remove From List     |
 |4. Exit                 |
 +------------------------+
