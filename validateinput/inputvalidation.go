@@ -17,7 +17,9 @@ func IsValidInput(text string) {
 	case text == "3":
 
 	case text == "4":
+		readdata.DeleteAll()
 
+	case text == "5":
 	default:
 		err := fmt.Errorf("Invalid Input")
 		fmt.Println(err.Error())
