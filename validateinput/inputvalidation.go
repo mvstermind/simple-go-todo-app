@@ -2,6 +2,7 @@ package validateinput
 
 import (
 	"fmt"
+	"os"
 	"todo-app/readdata"
 )
 
@@ -21,6 +22,9 @@ func IsValidInput(text string) {
 		readdata.DeleteAll()
 
 	case text == "5":
+		os.Exit(1)
+		fmt.Print("\033[H\033[2J") // that shit clears terminal and it's nuts
+
 	default:
 		err := fmt.Errorf("Invalid Input")
 		fmt.Println(err.Error())

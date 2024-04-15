@@ -26,6 +26,8 @@ Chose action: `)
 	string, err := b.ReadString('\n')
 	string = strings.TrimSpace(string)
 
+	fmt.Println() // just for aesthetic reasons
+
 	if err != nil {
 		err := fmt.Errorf("Couldn't read input")
 		fmt.Println(err.Error())

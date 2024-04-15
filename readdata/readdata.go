@@ -1,16 +1,28 @@
 package readdata
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 )
 
+var linesCount int = 1
+
 func ReadData() {
 
-	data, err := os.ReadFile(FilePath)
+	file, err := os.OpenFile(FilePath, os.O_RDONLY, 0666)
 	if err != nil {
-		fmt.Printf("Couldn't read file content: %v\n", err)
-		return
+		err := fmt.Errorf("Error: %v\n", err)
+		fmt.Printf(err.Error())
 	}
-	fmt.Printf(string(data))
+	defer file.Close()
+
+	fmt.Println("Things to do")
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		output := fmt.Sprintf("%d. %s", linesCount, string(scanner.Text()))
+		fmt.Println(output)
+		linesCount++
+	}
+
 }

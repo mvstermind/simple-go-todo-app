@@ -9,8 +9,6 @@ import (
 
 const FilePath = "DATA/todo.txt"
 
-var linesCount int = 1
-
 func AddData() {
 	fmt.Printf("Add task TODO: ")
 	string := readInput()
@@ -22,9 +20,7 @@ func AddData() {
 	}
 	defer file.Close()
 
-	linesCount := getNumLines(file)
-	combinedString := fmt.Sprintf("%d. %s", linesCount, string)
-	_, err = file.WriteString(combinedString)
+	_, err = file.WriteString(string)
 	if err != nil {
 		err := fmt.Errorf("Error: %v\n", err)
 		fmt.Printf(err.Error())
@@ -55,13 +51,4 @@ func readInput() string {
 		fmt.Printf(err.Error())
 	}
 	return string
-}
-
-func getNumLines(file *os.File) int {
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		linesCount++
-	}
-	return linesCount
-
 }
