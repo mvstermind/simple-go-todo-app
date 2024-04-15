@@ -16,12 +16,9 @@ func IsValidInput(text string) {
 		readdata.AddData()
 
 	case text == "3":
-		readdata.DeleteTask()
-
-	case text == "4":
 		readdata.DeleteAll()
 
-	case text == "5":
+	case text == "4":
 		os.Exit(1)
 		fmt.Print("\033[H\033[2J") // that shit clears terminal and it's nuts
 

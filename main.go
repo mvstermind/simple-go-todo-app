@@ -16,9 +16,8 @@ TODO LIST
 +------------------------+
 |1. Show TODO List       |
 |2. Add thing Fo Do      |
-|3. Remove From List     |
-|4. Clear List		 | 
-|5. Exit                 |
+|3. Clear List		 | 
+|4. Exit                 |
 +------------------------+
 Chose action: `)
 	b := bufio.NewReader(os.Stdin)
